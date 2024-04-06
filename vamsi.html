@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--<title>Registration Form in HTML CSS</title>-->
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="stylee.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header>BBG Visitor Entry</header>
+      <form name='submit-to-google-sheet'>
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter full name" required name="Name" />
+        </div>
+        <div class="column">
+            <div class="input-box">
+              <label>Phone Number</label>
+              <input type="number" placeholder="Enter phone number" required name="Mobilenumber"  />
+            </div>
+            <div class="input-box">
+              <label>DateTime</label>
+              <input type="datetime-local" placeholder="Enter datetime" name="Datetime" required />
+            </div>
+        </div>
+        <div class="input-box address">
+            <label>Office Type</label>
+            <div class="column" >
+              <div class="select-box"  >
+                <select name="Officetype">
+                  <option hidden value="Not selected"  >Select Your Office</option>
+                  <option value="KPHB">KPHB</option>
+                  <option value="Jubliee Hills">Jubliee Hills</option>
+                  <option value="LB Nagar">LB Nagar</option>
+                  <option value="VIZAG">VIZAG</option>
+                  <option value="Vizinagaram">Vizinagaram</option>
+                  <option value="Srikakulam">Srikakulam</option>
+                  <option value="Khammam">Khammam</option>
+                  <option value="Warangal">Warangal</option>
+                  <option value="Mahabubnagar">Mahabubnagar</option>
+                  <option value="Kurnool">Kurnool</option>
+                  <option value="Nellore">Nellore</option>
+                  
+                </select>
+              </div>
+            </div>
+            
+        </div>
+        <div class="input-box address">
+            <label>Team Name</label>
+            <div class="column">
+              <div class="select-box">
+                <select name="Team">
+                  <option hidden>Select Your Team</option>
+                  <option value="Adhipathi">Adhipathi</option>
+                  <option value="Avengers">Avengers</option>
+                  <option value="Baadsha">Baadsha</option>
+                  <option value="Baahubali">Baahubali</option>
+                </select>
+              </div>
+            </div>            
+        </div>
+        <div class="visitor-box">
+          <h3>Visitor Type</h3>
+          <div class="visitor-option">
+            <div class="visitor">
+              <input type="radio" value="Associate" id="check-Associate" name="Visitor" checked />
+              <label for="check-Associate">Associate</label>
+            </div>
+            <div class="visitor">
+              <input type="radio" value="Vendor" id="check-Vendor" name="Visitor" checked />
+              <label for="check-Vendor">Vendor</label>
+            </div>
+            <div class="visitor">
+              <input type="radio" value="Customer" id="check-Customer" name="Visitor" checked />
+              <label for="check-Customer">Customer</label>
+            </div>
+            <div class="visitor">
+                <input type="radio" value="Guest" id="check-Guest" name="Visitor" checked />
+                <label for="check-Guest">Guest</label>
+            </div>
+          </div>
+        </div>
+        <div class="visitor-box">
+            <h3>Gender</h3>
+            <div class="visitor-option">
+              <div class="visitor">
+                <input type="radio" id="check-Male" name="Gender" value="Male" checked, required />
+                <label for="check-Male">Male</label>
+              </div>
+              <div class="visitor">
+                <input type="radio" id="check-Female" name="Gender" value="Female" checked ,required />
+                <label for="check-Female">Female</label>
+              </div>
+              <div class="visitor">
+                <input type="radio" id="check-Others" name="Gender" value="Others" checked,required />
+                <label for="check-Others">Others</label>
+              </div>
+            </div>
+          </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" placeholder="Enter street address" required name="Address" />
+          <div class="column">
+            <div class="select-box">
+              <label>State</label>
+              <select name="state">
+                <option hidden value="Not select">Select State</option>
+                <option value=">Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Telengana">Telengana</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-box">
+            <label>Whome To Meet</label>
+            <input type="text" placeholder="Enter Whome to meet" required name="Whometomeet" />
+          </div>
+        </div>
+        <button  name="submit">Submit</button>
+      </form>
+      <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyVyXwxQ-w9y-ZhQ2n-y8V2RzOBMt7sJ6PS7rsMeKxGvNBrHciFepKrqUnV_DmWxiTueQ/exec'
+        const form = document.forms['submit-to-google-sheet']
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => console.log('Success!', response))
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+    </section>
+  </body>
+</html>
