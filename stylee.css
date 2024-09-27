@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: url("BBgg.jpg");
+  background: url("BBgg.jpg") no-repeat center center/cover;
   background-size: 110%;
   background-position: -400px opx;
   min-height: 100vh;
